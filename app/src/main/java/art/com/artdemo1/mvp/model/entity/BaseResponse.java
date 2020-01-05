@@ -25,7 +25,7 @@ import art.com.artdemo1.mvp.model.api.Api;
  * 指定范型即可改变 {@code data} 字段的类型, 达到重用 {@link BaseResponse}, 如果你实在看不懂, 请忽略
  * <p>
  * Created by JessYan on 26/09/2016 15:19
- * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
+ *
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */

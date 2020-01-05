@@ -21,7 +21,7 @@ import me.jessyan.art.utils.ArtUtils;
  * 展示 {@link BaseHolder} 的用法
  * <p>
  * Created by JessYan on 9/4/16 12:56
- * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
+ *
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */

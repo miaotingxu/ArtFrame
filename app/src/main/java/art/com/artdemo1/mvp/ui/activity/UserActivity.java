@@ -30,7 +30,7 @@ import static me.jessyan.art.utils.Preconditions.checkNotNull;
  * 展示 View 的用法
  * <p>
  * Created by JessYan on 09/04/2016 10:59
- * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
+ *
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */

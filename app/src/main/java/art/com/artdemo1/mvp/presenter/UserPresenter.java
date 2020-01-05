@@ -29,7 +29,7 @@ import timber.log.Timber;
  * 展示 Presenter 的用法
  *
  * Created by JessYan on 09/04/2016 10:59
- * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
+ *
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */

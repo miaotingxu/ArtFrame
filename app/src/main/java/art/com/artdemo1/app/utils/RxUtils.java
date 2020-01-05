@@ -30,7 +30,7 @@ import me.jessyan.art.mvp.IView;
  * 放置便于使用 RxJava 的一些工具方法
  * <p>
  * Created by JessYan on 11/10/2016 16:39
- * <a href="mailto:jess.yan.effort@gmail.com">Contact me</a>
+ *
  * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
