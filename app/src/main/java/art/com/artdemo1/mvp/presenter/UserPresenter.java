@@ -42,7 +42,6 @@ public class UserPresenter extends BasePresenter<UserRepository> {
     private boolean isFirst = true;
     private int preEndIndex;
 
-
     public UserPresenter(AppComponent appComponent, DefaultAdapter adapter, RxPermissions rxPermissions) {
         super(appComponent.repositoryManager().createRepository(UserRepository.class));
         this.mAdapter = adapter;
@@ -60,7 +59,14 @@ public class UserPresenter extends BasePresenter<UserRepository> {
         Timber.d("onCreate");
     }
 
+    /**
+     * 请求Users
+     * @param msg
+     */
     public void requestUsers(final Message msg) {
+        /**
+         * 是否下拉刷新
+         */
         final boolean pullToRefresh = (boolean) msg.objs[0];
         IView view = msg.getTarget();
         //请求外部存储权限用于适配android6.0的权限管理机制
@@ -89,7 +95,6 @@ public class UserPresenter extends BasePresenter<UserRepository> {
         if (pullToRefresh) lastUserId = 1;//下拉刷新默认只请求第一页
 
         //关于RxCache缓存库的使用请参考 http://www.jianshu.com/p/b58ef6b0624b
-
         boolean isEvictCache = pullToRefresh;//是否驱逐缓存,为ture即不使用缓存,每次下拉刷新即需要最新数据,则不使用缓存
 
         if (pullToRefresh && isFirst) {//默认在第一次下拉刷新时使用缓存
@@ -104,8 +109,7 @@ public class UserPresenter extends BasePresenter<UserRepository> {
                     addDispose(disposable);//在订阅时必须调用这个方法,不然Activity退出时可能内存泄漏
                     if (pullToRefresh)
                         msg.getTarget().showLoading();//显示下拉刷新的进度条
-                    else {
-                        //显示上拉加载更多的进度条
+                    else {//显示上拉加载更多的进度条
                         msg.what = 0;
                         msg.handleMessageToTargetUnrecycle();
                     }
@@ -118,8 +122,7 @@ public class UserPresenter extends BasePresenter<UserRepository> {
                         //HandleMessageToTarget()的原理就是发送消息并回收消息
                         //调用默认方法后不需要调用HandleMessageToTarget(),但是如果后面对view没有其他操作了请调用message.recycle()回收消息
                         msg.recycle();
-                    } else {
-                        //隐藏上拉加载更多的进度条
+                    } else {//隐藏上拉加载更多的进度条
                         msg.what = 1;
                         msg.handleMessageToTarget();//方法最后必须调HandleMessageToTarget,将消息所有引用清空后回收进消息池
                     }

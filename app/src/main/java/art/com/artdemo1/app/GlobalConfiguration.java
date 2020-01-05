@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 
 import java.util.List;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 import art.com.artdemo1.mvp.model.api.Api;
@@ -105,16 +106,14 @@ public final class GlobalConfiguration implements ConfigModule {
 //                })
 
                 //可以自定义一个单例的线程池供全局使用
-//                .executorService(Executors.newCachedThreadPool())
-
+                .executorService(Executors.newCachedThreadPool())
                 //这里提供一个全局处理 Http 请求和响应结果的处理类, 可以比客户端提前一步拿到服务器返回的结果, 可以做一些操作, 比如 Token 超时后, 重新获取 Token
                 .globalHttpHandler(new GlobalHttpHandlerImpl(context))
                 //用来处理 RxJava 中发生的所有错误, RxJava 中发生的每个错误都会回调此接口
                 //RxJava 必须要使用 ErrorHandleSubscriber (默认实现 Subscriber 的 onError 方法), 此监听才生效
                 .responseErrorListener(new ResponseErrorListenerImpl())
                 .gsonConfiguration((context1, gsonBuilder) -> {//这里可以自己自定义配置 Gson 的参数
-                    gsonBuilder
-                            .serializeNulls()//支持序列化值为 null 的参数
+                    gsonBuilder.serializeNulls()//支持序列化值为 null 的参数
                             .enableComplexMapKeySerialization();//支持将序列化 key 为 Object 的 Map, 默认只能序列化 key 为 String 的 Map
                 })
                 .retrofitConfiguration((context1, retrofitBuilder) -> {//这里可以自己自定义配置 Retrofit 的参数, 甚至您可以替换框架配置好的 OkHttpClient 对象 (但是不建议这样做, 这样做您将损失框架提供的很多功能)

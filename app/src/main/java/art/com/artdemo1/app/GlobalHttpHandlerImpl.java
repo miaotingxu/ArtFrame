@@ -1,18 +1,3 @@
-/*
- * Copyright 2017 JessYan
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package art.com.artdemo1.app;
 
 import android.content.Context;
@@ -24,6 +9,7 @@ import androidx.annotation.Nullable;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
+import java.util.Objects;
 
 import art.com.artdemo1.mvp.model.entity.User;
 import me.jessyan.art.http.GlobalHttpHandler;
@@ -44,6 +30,7 @@ import timber.log.Timber;
  * ================================================
  */
 public class GlobalHttpHandlerImpl implements GlobalHttpHandler {
+
     private Context context;
 
     public GlobalHttpHandlerImpl(Context context) {
@@ -59,10 +46,9 @@ public class GlobalHttpHandlerImpl implements GlobalHttpHandler {
      * @param response   {@link Response}
      * @return {@link Response}
      */
-    @NonNull
     @Override
     public Response onHttpResultResponse(@Nullable String httpResult, @NonNull Interceptor.Chain chain, @NonNull Response response) {
-        if (!TextUtils.isEmpty(httpResult) && RequestInterceptor.isJson(response.body().contentType())) {
+        if (!TextUtils.isEmpty(httpResult) && RequestInterceptor.isJson(Objects.requireNonNull(response.body()).contentType())) {
             try {
                 List<User> list = ArtUtils.obtainAppComponentFromContext(context).gson().fromJson(httpResult, new TypeToken<List<User>>() {
                 }.getType());
@@ -95,7 +81,6 @@ public class GlobalHttpHandlerImpl implements GlobalHttpHandler {
      * @param request {@link Request}
      * @return {@link Request}
      */
-    @NonNull
     @Override
     public Request onHttpRequestBefore(@NonNull Interceptor.Chain chain, @NonNull Request request) {
         /* 如果需要在请求服务器之前做一些操作, 则重新构建一个做过操作的 Request 并 return, 如增加 Header、Params 等请求信息, 不做操作则直接返回参数 request
