@@ -4,18 +4,12 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.ImageView;
 
-import com.org.rximageloader.Bean.ImageBean;
+import org.com.imageloader.Bean.ImageBean;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-/**
- * =====作者=====
- * 许英俊
- * =====时间=====
- * 2017/4/4.
- */
 public class RxImageLoader {
 
     static RxImageLoader singleton;

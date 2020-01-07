@@ -6,8 +6,9 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import com.jakewharton.disklrucache.DiskLruCache;
-import com.org.rximageloader.Bean.ImageBean;
-import com.org.rximageloader.Utils.DiskCacheUtils;
+
+import org.com.imageloader.Bean.ImageBean;
+import org.com.imageloader.Utils.DiskCacheUtils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

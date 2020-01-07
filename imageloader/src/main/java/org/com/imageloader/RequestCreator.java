@@ -10,12 +10,6 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Predicate;
 
-/**
- * =====作者=====
- * 许英俊
- * =====时间=====
- * 2017/4/5.
- */
 public class RequestCreator {
 
     public MemoryCacheObservable memoryCacheObservable;

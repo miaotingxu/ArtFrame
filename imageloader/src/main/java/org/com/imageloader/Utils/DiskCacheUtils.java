@@ -9,12 +9,6 @@ import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-/**
- * =====作者=====
- * 许英俊
- * =====时间=====
- * 2017/4/6.
- */
 public class DiskCacheUtils {
 
     /**
