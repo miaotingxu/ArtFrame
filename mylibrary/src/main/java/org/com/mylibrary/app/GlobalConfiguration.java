@@ -1,4 +1,4 @@
-package art.com.artdemo1.app;
+package org.com.mylibrary.app;
 
 import android.app.Application;
 import android.content.Context;
@@ -6,11 +6,12 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 
+import org.com.mylibrary.mvp.model.api.Api;
+
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import art.com.artdemo1.mvp.model.api.Api;
 import me.jessyan.art.BuildConfig;
 import me.jessyan.art.base.delegate.AppDelegate;
 import me.jessyan.art.base.delegate.AppLifecycles;

@@ -1,4 +1,4 @@
-package art.com.artdemo1.mvp.model.api;
+package org.com.mylibrary.mvp.model.api;
 
 /**
  * ================================================

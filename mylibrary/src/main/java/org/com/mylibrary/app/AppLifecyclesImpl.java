@@ -1,4 +1,4 @@
-package art.com.artdemo1.app;
+package org.com.mylibrary.app;
 
 import android.app.Application;
 import android.content.Context;
@@ -8,7 +8,8 @@ import androidx.annotation.NonNull;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
-import art.com.artdemo1.BuildConfig;
+import org.com.mylibrary.BuildConfig;
+
 import butterknife.ButterKnife;
 import me.jessyan.art.base.delegate.AppLifecycles;
 import me.jessyan.art.integration.cache.IntelligentCache;

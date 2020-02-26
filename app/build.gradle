@@ -30,13 +30,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'me.jessyan:art:2.5.0'
-    implementation 'me.jessyan:art-autolayout:2.5.0'
-    implementation 'me.jessyan:art-imageloader-glide:2.5.0'
-
-    //support
-    implementation rootProject.ext.dependencies["cardview-v7"]
-
     //tools
     //注意 Art 核心库现在并不会依赖某个 EventBus, 要想使用 EventBus, 还请在项目中自行依赖对应的 EventBus
     //现在支持两种 EventBus, greenrobot 的 EventBus 和畅销书 《Android源码设计模式解析与实战》的作者 何红辉 所作的 AndroidEventBus
@@ -46,8 +39,6 @@ dependencies {
     implementation rootProject.ext.dependencies["androideventbus"]
 //    implementation rootProject.ext.dependencies["eventbus"]
     annotationProcessor rootProject.ext.dependencies["dagger2-compiler"]
-    implementation rootProject.ext.dependencies["progressmanager"]
-    implementation rootProject.ext.dependencies["retrofit-url-manager"]
     implementation rootProject.ext.dependencies["lifecyclemodel"]
 
     //view
@@ -58,7 +49,7 @@ dependencies {
 
     //test
     testImplementation rootProject.ext.dependencies["junit"]
-    debugImplementation rootProject.ext.dependencies["canary-debug"]
-    releaseImplementation rootProject.ext.dependencies["canary-release"]
-    testImplementation rootProject.ext.dependencies["canary-release"]
+
+    api project(":mylibrary")
+
 }

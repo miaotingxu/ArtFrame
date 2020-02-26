@@ -1,4 +1,4 @@
-package art.com.artdemo1.app;
+package org.com.mylibrary.app;
 
 import android.content.Context;
 import android.os.Bundle;

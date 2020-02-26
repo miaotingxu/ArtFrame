@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package art.com.artdemo1.app;
+package org.com.mylibrary.app;
 
 import android.content.Context;
 import android.net.ParseException;

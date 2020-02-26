@@ -28,10 +28,6 @@ import static me.jessyan.art.utils.Preconditions.checkNotNull;
 /**
  * ================================================
  * 展示 View 的用法
- * <p>
- * Created by JessYan on 09/04/2016 10:59
- *
- * <a href="https://github.com/JessYanCoding">Follow me</a>
  * ================================================
  */
 public class UserActivity extends BaseActivity<UserPresenter> implements IView, SwipeRefreshLayout.OnRefreshListener {
@@ -45,7 +41,6 @@ public class UserActivity extends BaseActivity<UserPresenter> implements IView, 
     private boolean isLoadingMore;
     private RxPermissions mRxPermissions;
     private UserAdapter mAdapter;
-
 
     @Override
     public int initView(@Nullable Bundle savedInstanceState) {
@@ -96,7 +91,6 @@ public class UserActivity extends BaseActivity<UserPresenter> implements IView, 
                 break;
         }
     }
-
 
     @Override
     public void onRefresh() {

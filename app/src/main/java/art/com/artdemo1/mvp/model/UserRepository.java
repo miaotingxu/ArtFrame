@@ -42,7 +42,6 @@ public class UserRepository implements IModel {
     }
 
     /**
-     *
      * @param lastIdQueried
      * @param update
      * @return

@@ -1,6 +1,5 @@
 package art.com.artdemo1.mvp.model.entity;
 
-
 public class User {
     private final int id;
     private final String login;

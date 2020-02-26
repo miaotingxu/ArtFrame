@@ -6,6 +6,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import org.com.mylibrary.app.utils.RxUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +95,6 @@ public class UserPresenter extends BasePresenter<UserRepository> {
 
     private void requestFromModel(Message msg, boolean pullToRefresh) {
         if (pullToRefresh) lastUserId = 1;//下拉刷新默认只请求第一页
-
         //关于RxCache缓存库的使用请参考 http://www.jianshu.com/p/b58ef6b0624b
         boolean isEvictCache = pullToRefresh;//是否驱逐缓存,为ture即不使用缓存,每次下拉刷新即需要最新数据,则不使用缓存
 
@@ -104,7 +105,8 @@ public class UserPresenter extends BasePresenter<UserRepository> {
 
         mModel.getUsers(lastUserId, isEvictCache)
                 .subscribeOn(Schedulers.io())
-                .retryWhen(new RetryWithDelay(3, 2))//遇到错误时重试,第一个参数为重试几次,第二个参数为重试的间隔
+                //遇到错误时重试,第一个参数为重试几次,第二个参数为重试的间隔
+                .compose(RxUtils.retryWhen())
                 .doOnSubscribe(disposable -> {
                     addDispose(disposable);//在订阅时必须调用这个方法,不然Activity退出时可能内存泄漏
                     if (pullToRefresh)
@@ -113,8 +115,7 @@ public class UserPresenter extends BasePresenter<UserRepository> {
                         msg.what = 0;
                         msg.handleMessageToTargetUnrecycle();
                     }
-                }).subscribeOn(AndroidSchedulers.mainThread())
-                .observeOn(AndroidSchedulers.mainThread())
+                }).compose(RxUtils.applyMainSchedulers())
                 .doFinally(() -> {
                     if (pullToRefresh) {
                         msg.getTarget().hideLoading();//隐藏下拉刷新的进度条

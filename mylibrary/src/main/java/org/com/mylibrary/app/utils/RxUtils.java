@@ -1,19 +1,4 @@
-/*
- * Copyright 2017 JessYan
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package art.com.artdemo1.app.utils;
+package org.com.mylibrary.app.utils;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableTransformer;
@@ -24,21 +9,23 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import me.jessyan.art.mvp.IView;
+import me.jessyan.rxerrorhandler.handler.RetryWithDelay;
 
 /**
  * ================================================
  * 放置便于使用 RxJava 的一些工具方法
- * <p>
  * Created by JessYan on 11/10/2016 16:39
- *
- * <a href="https://github.com/JessYanCoding">Follow me</a>
- * ================================================
  */
 public class RxUtils {
 
     private RxUtils() {
     }
 
+    /**
+     * @param view
+     * @param <T>
+     * @return
+     */
     public static <T> ObservableTransformer<T, T> applySchedulers(final IView view) {
         return new ObservableTransformer<T,T>() {
             @Override
@@ -61,4 +48,23 @@ public class RxUtils {
             }
         };
     }
+
+    public static <T> ObservableTransformer<T, T> applySchedulers() {
+        return observable -> observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public static <T> ObservableTransformer<T, T> applyMainSchedulers() {
+        return observable -> observable.subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    /**
+     * 失败重试
+     */
+    public static <T> ObservableTransformer<T, T> retryWhen() {
+        return observable -> observable.retryWhen
+                (new RetryWithDelay(3, 2));
+    }
+
 }

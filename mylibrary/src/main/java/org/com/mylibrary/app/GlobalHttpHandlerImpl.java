@@ -1,4 +1,4 @@
-package art.com.artdemo1.app;
+package org.com.mylibrary.app;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -6,15 +6,10 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.google.gson.reflect.TypeToken;
-
-import java.util.List;
 import java.util.Objects;
 
-import art.com.artdemo1.mvp.model.entity.User;
 import me.jessyan.art.http.GlobalHttpHandler;
 import me.jessyan.art.http.log.RequestInterceptor;
-import me.jessyan.art.utils.ArtUtils;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -50,10 +45,10 @@ public class GlobalHttpHandlerImpl implements GlobalHttpHandler {
     public Response onHttpResultResponse(@Nullable String httpResult, @NonNull Interceptor.Chain chain, @NonNull Response response) {
         if (!TextUtils.isEmpty(httpResult) && RequestInterceptor.isJson(Objects.requireNonNull(response.body()).contentType())) {
             try {
-                List<User> list = ArtUtils.obtainAppComponentFromContext(context).gson().fromJson(httpResult, new TypeToken<List<User>>() {
-                }.getType());
-                User user = list.get(0);
-                Timber.w("Result ------> " + user.getLogin() + "    ||   Avatar_url------> " + user.getAvatarUrl());
+//                List<User> list = ArtUtils.obtainAppComponentFromContext(context).gson().fromJson(httpResult, new TypeToken<List<User>>() {
+//                }.getType());
+//                User user = list.get(0);
+//                Timber.w("Result ------> " + user.getLogin() + "    ||   Avatar_url------> " + user.getAvatarUrl());
             } catch (Exception e) {
                 e.printStackTrace();
                 return response;
