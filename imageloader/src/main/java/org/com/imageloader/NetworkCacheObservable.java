@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
-import com.org.rximageloader.Bean.ImageBean;
+import org.com.imageloader.Bean.ImageBean;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,7 +41,7 @@ public class NetworkCacheObservable extends CacheObservable {
         InputStream inputStream = null;
         try {
             URL imageUrl = new URL(url);
-            URLConnection urlConnection = (HttpURLConnection) imageUrl.openConnection();
+            URLConnection urlConnection = imageUrl.openConnection();
             inputStream = urlConnection.getInputStream();
             bitmap = BitmapFactory.decodeStream(inputStream);
         } catch (Exception e) {

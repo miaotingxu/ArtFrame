@@ -4,7 +4,8 @@ import android.graphics.Bitmap;
 import android.util.Log;
 import android.util.LruCache;
 
-import com.org.rximageloader.Bean.ImageBean;
+import org.com.imageloader.Bean.ImageBean;
+
 
 /**
  * =====作者=====
