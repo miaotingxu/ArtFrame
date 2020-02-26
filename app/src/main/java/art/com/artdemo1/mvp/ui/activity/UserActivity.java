@@ -30,7 +30,8 @@ import static me.jessyan.art.utils.Preconditions.checkNotNull;
  * 展示 View 的用法
  * ================================================
  */
-public class UserActivity extends BaseActivity<UserPresenter> implements IView, SwipeRefreshLayout.OnRefreshListener {
+public class UserActivity extends BaseActivity<UserPresenter>
+        implements IView, SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
