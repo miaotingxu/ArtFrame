@@ -16,11 +16,12 @@
 package me.jessyan.art.base.delegate;
 
 import android.app.Activity;
-import android.arch.lifecycle.LifecycleObserver;
-import android.arch.lifecycle.LifecycleOwner;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
 
 import me.jessyan.art.integration.EventBusManager;
 import me.jessyan.art.mvp.IPresenter;

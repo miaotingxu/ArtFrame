@@ -16,9 +16,9 @@
 package me.jessyan.art.di.module;
 
 import android.app.Application;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
+import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 
@@ -214,7 +214,6 @@ public class GlobalConfigModule {
     @Provides
     Cache.Factory provideCacheFactory(Application application) {
         return mCacheFactory == null ? new Cache.Factory() {
-            @NonNull
             @Override
             public Cache build(CacheType type) {
                 //若想自定义 LruCache 的 size, 或者不想使用 LruCache, 想使用自己自定义的策略

@@ -17,13 +17,13 @@ package me.jessyan.art.mvp;
 
 import android.app.Activity;
 import android.app.Service;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleObserver;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.OnLifecycleEvent;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.SupportActivity;
 import android.view.View;
+
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.OnLifecycleEvent;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -61,7 +61,7 @@ public class BasePresenter<M extends IModel> implements IPresenter, LifecycleObs
     }
 
     /**
-     * 在框架中 {@link Activity#onDestroy()} 时会默认调用 {@link IPresenter#onDestroy()}
+     * 在框架中 {@link Activity# onDestroy()} 时会默认调用 {@link IPresenter#onDestroy()}
      */
     @Override
     public void onDestroy() {
@@ -79,7 +79,7 @@ public class BasePresenter<M extends IModel> implements IPresenter, LifecycleObs
      * 所以当您想在 {@link Service} 以及一些自定义 {@link View} 或自定义类中使用 {@code Presenter} 时
      * 您也将不能继续使用 {@link OnLifecycleEvent} 绑定生命周期
      *
-     * @param owner link {@link SupportActivity} and {@link Fragment}
+     * @param owner link {@link } and {@link Fragment}
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     void onDestroy(LifecycleOwner owner) {
@@ -106,7 +106,7 @@ public class BasePresenter<M extends IModel> implements IPresenter, LifecycleObs
 
     /**
      * 将 {@link Disposable} 添加到 {@link CompositeDisposable} 中统一管理
-     * 可在 {@link Activity#onDestroy()} 中使用 {@link #unDispose()} 停止正在执行的 RxJava 任务,避免内存泄漏(框架已自行处理)
+     * 可在 {@link Activity# onDestroy()} 中使用 {@link #unDispose()} 停止正在执行的 RxJava 任务,避免内存泄漏(框架已自行处理)
      *
      * @param disposable
      */

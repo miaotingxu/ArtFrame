@@ -15,8 +15,7 @@
  */
 package me.jessyan.art.base;
 
-
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import me.jessyan.art.di.component.AppComponent;
 

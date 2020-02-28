@@ -18,7 +18,8 @@ package me.jessyan.art.integration.cache;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
-import android.support.v4.app.Fragment;
+
+import androidx.fragment.app.Fragment;
 
 import me.jessyan.art.di.component.AppComponent;
 import me.jessyan.art.mvp.RepositoryManager;

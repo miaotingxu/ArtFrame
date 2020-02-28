@@ -16,7 +16,8 @@
 package me.jessyan.art.mvp;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * ================================================

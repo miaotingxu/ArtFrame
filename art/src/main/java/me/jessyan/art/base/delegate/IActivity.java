@@ -17,9 +17,10 @@ package me.jessyan.art.base.delegate;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 
 import me.jessyan.art.base.BaseActivity;
 import me.jessyan.art.base.BaseFragment;
@@ -86,7 +87,7 @@ public interface IActivity<P extends IPresenter> {
      * 如果返回{@code false},那意味着这个 Activity 不需要绑定 Fragment,那你再在这个 Activity 中绑定继承于 {@link BaseFragment} 的 Fragment 将不起任何作用
      *
      * @return
-     * @see ActivityLifecycle#registerFragmentCallbacks (Fragment 的注册过程)
+     * @see ActivityLifecycle# registerFragmentCallbacks (Fragment 的注册过程)
      */
     boolean useFragment();
 }

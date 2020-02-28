@@ -16,7 +16,8 @@
 package me.jessyan.art.http.imageloader;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

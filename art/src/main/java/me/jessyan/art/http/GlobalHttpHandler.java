@@ -15,8 +15,8 @@
  */
 package me.jessyan.art.http;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import me.jessyan.art.di.module.GlobalConfigModule;
 import okhttp3.Interceptor;

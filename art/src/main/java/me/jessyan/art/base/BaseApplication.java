@@ -17,7 +17,8 @@ package me.jessyan.art.base;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import me.jessyan.art.base.delegate.AppDelegate;
 import me.jessyan.art.base.delegate.AppLifecycles;

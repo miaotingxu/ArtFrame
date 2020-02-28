@@ -15,7 +15,7 @@
  */
 package me.jessyan.art.utils;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * ================================================
